@@ -43,6 +43,7 @@ jobs:
       - name: Install Mineflayer dependencies
         working-directory: app/src/main/assets/nodejs-project
         run: npm install --omit=dev --package-lock=false
+          rm -rf node_modules/prismarine-nbt/sample
 
       - name: Build debug APK
         uses: gradle/gradle-build-action@v3
