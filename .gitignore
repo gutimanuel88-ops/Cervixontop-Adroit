@@ -1,0 +1,8 @@
+.gradle/
+.idea/
+/build/
+app/build/
+*.iml
+local.properties
+_node_runtime/
+nodejs-mobile-android.zip

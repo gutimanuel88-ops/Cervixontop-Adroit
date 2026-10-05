@@ -1,0 +1,42 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.cervixontop.mobile'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.cervixontop.mobile'
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName '1.0'
+
+        ndk { abiFilters 'arm64-v8a' }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+                arguments '-DANDROID_STL=c++_shared'
+            }
+        }
+    }
+
+    buildTypes {
+        release { minifyEnabled false }
+        debug { minifyEnabled false }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs 'libnode/bin/'
+        }
+    }
+
+    externalNativeBuild {
+        cmake { path file('CMakeLists.txt') }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+}
